@@ -1,0 +1,18 @@
+vrf CIB-BANK 
+vrf CIB-BANK description CIB-BANK
+vrf CIB-BANK address-family ipv4 unicast 
+vrf CIB-BANK address-family ipv4 unicast import route-target 65000:4006
+vrf CIB-BANK address-family ipv4 unicast export route-target 65000:4006
+router bgp 65000 vrf CIB-BANK 
+router bgp 65000 vrf CIB-BANK rd 65000:4006
+router bgp 65000 vrf CIB-BANK address-family ipv4 unicast 
+router bgp 65000 vrf CIB-BANK address-family ipv4 unicast maximum-paths ibgp 2
+router bgp 65000 vrf CIB-BANK address-family ipv4 unicast redistribute connected
+router bgp 65000 vrf CIB-BANK address-family ipv4 unicast redistribute static
+router bgp 65000 vrf CIB-BANK neighbor 10.66.4.22 
+router bgp 65000 vrf CIB-BANK neighbor 10.66.4.22 remote-as 65246
+router bgp 65000 vrf CIB-BANK neighbor 10.66.4.22 bfd fast-detect
+router bgp 65000 vrf CIB-BANK neighbor 10.66.4.22 bfd multiplier 3
+router bgp 65000 vrf CIB-BANK neighbor 10.66.4.22 bfd minimum-interval 50
+router bgp 65000 vrf CIB-BANK neighbor 10.66.4.22 address-family ipv4 unicast
+commit

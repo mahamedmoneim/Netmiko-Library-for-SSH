@@ -1,0 +1,7 @@
+set interfaces ge-0/0/2 description DNS-AAA
+set interfaces ge-0/0/2 encapsulation flexible-ethernet-services
+set interfaces ge-0/0/2 vlan-tagging  
+set interfaces ge-0/0/2 unit 0 description DNS-AAA
+set interfaces ge-0/0/2 unit 0 family inet add 192.168.144.1/30
+set interfaces ge-0/0/2 unit 0 vlan-id 100      
+commit
